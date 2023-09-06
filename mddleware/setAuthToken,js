@@ -1,0 +1,9 @@
+import { setCookie } from "nookies";
+
+export function setAuthToken(res, token) {
+  setCookie({ res }, "authToken", token, {
+    path: "/",
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+  });
+}
